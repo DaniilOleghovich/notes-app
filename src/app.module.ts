@@ -4,11 +4,16 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { NotesModule } from './notes/notes.module';
+import { SwaggerModule } from './common/swagger/swagger.module';
 import * as process from 'process';
+import { UsersController } from "./users/controllers/users.controller";
+import { NotesController } from "./notes/controllers/notes.controller";
+import { UsersService } from "./users/services/users.service";
+import { NotesService } from "./notes/services/notes.service";
 
 @Module({
-  controllers: [],
-  providers: [],
+  controllers: [UsersController, NotesController],
+  providers: [UsersService, NotesService],
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env',
@@ -25,6 +30,7 @@ import * as process from 'process';
     }),
     UsersModule,
     NotesModule,
+    SwaggerModule,
   ],
 })
 export class AppModule {}
