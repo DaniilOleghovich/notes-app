@@ -6,6 +6,8 @@ import { ConfigModule } from "@nestjs/config";
 import { NotesModule } from "./notes/notes.module";
 import { SwaggerModule } from "./common/swagger/swagger.module";
 import * as process from "process";
+import { UserEntity } from "./users/entities/user.model";
+import { NoteEntity } from "./notes/entities/note.model";
 
 @Module({
   controllers: [],
@@ -21,7 +23,7 @@ import * as process from "process";
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [],
+      models: [UserEntity, NoteEntity],
       autoLoadModels: true,
     }),
     UsersModule,
