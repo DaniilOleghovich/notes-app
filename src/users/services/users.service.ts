@@ -6,7 +6,7 @@ export class UsersService {
     return [
       { id: 1, email: 'qwe@gmail.com', password: 'qwerty'},
       { id: 2, email: 'qwe@gmail.com', password: 'qwerty'},
-      { id: 3, email: 'qwe@gmail.com', password: 'qwerty'},
+      // { id: 3, email: 'qwe@gmail.com', password: 'qwerty'},
     ];
   }
 }
