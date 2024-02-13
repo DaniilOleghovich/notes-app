@@ -1,19 +1,15 @@
-import { Module } from '@nestjs/common';
+import { Module } from "@nestjs/common";
 
-import { SequelizeModule } from '@nestjs/sequelize';
-import { UsersModule } from './users/users.module';
-import { ConfigModule } from '@nestjs/config';
-import { NotesModule } from './notes/notes.module';
-import { SwaggerModule } from './common/swagger/swagger.module';
-import * as process from 'process';
-import { UsersController } from "./users/controllers/users.controller";
-import { NotesController } from "./notes/controllers/notes.controller";
-import { UsersService } from "./users/services/users.service";
-import { NotesService } from "./notes/services/notes.service";
+import { SequelizeModule } from "@nestjs/sequelize";
+import { UsersModule } from "./users/users.module";
+import { ConfigModule } from "@nestjs/config";
+import { NotesModule } from "./notes/notes.module";
+import { SwaggerModule } from "./common/swagger/swagger.module";
+import * as process from "process";
 
 @Module({
-  controllers: [UsersController, NotesController],
-  providers: [UsersService, NotesService],
+  controllers: [],
+  providers: [],
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env',
