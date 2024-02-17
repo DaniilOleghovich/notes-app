@@ -8,24 +8,27 @@ import { Sequelize } from "sequelize";
 export class UsersService {
   constructor(
     @InjectModel(UserEntity) private userRepository: typeof UserEntity,
-    private readonly sequelize: Sequelize,
+    // private readonly sequelize: Sequelize,
   ) {}
 
   async createUser(userDto: UserDto): Promise<UserEntity> {
-    return this.sequelize.transaction(async (transaction) => {
-      const existingUser = await this.userRepository.findOne({
-        where: {
-          login: userDto.login,
-          email: userDto.email,
-        },
-        transaction
-      });
+    // return this.sequelize.transaction(async (transaction) => {
+    //   const existingUser = await this.userRepository.findOne({
+    //     where: {
+    //       login: userDto.login,
+    //       email: userDto.email,
+    //     },
+    //     transaction
+    //   });
+    //
+    //   if (existingUser) {
+    //     throw new Error("User already exists!");
+    //   }
+    //   return await this.userRepository.create(userDto, {transaction});
+    // })
 
-      if (existingUser) {
-        throw new Error("User already exists!");
-      }
-      return await this.userRepository.create(userDto, {transaction});
-    })
+    return await this.userRepository.create(userDto);
+
   }
 
   async getAllUsers(): Promise<UserEntity[]> {
