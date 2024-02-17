@@ -38,6 +38,4 @@ export class UserEntity extends Model<UserEntity, UserEntityAttrs> {
 
   @Column({ type: DataType.STRING, allowNull: true })
   banReason: string;
-
-  //   TODO: Need to refactor users table. Need to create table for banned users and move isBanned, banReason columns there
 }

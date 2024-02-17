@@ -5,7 +5,7 @@ interface NoteEntityAttrs {
   description: string;
 }
 
-@Table({ tableName: 'notes'})
+@Table({ tableName: "notes" })
 export class NoteEntity extends Model<NoteEntity, NoteEntityAttrs> {
   @Column({
     type: DataType.BIGINT,
