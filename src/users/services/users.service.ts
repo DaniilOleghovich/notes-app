@@ -18,15 +18,11 @@ export class UsersService {
       try {
         const  user = await this.userRepository.create(userDto, {transaction});
         const role = await this.roleService.getRoleByValue('USER');
-        if (!user) {
-          await transaction.rollback();
-          throw new Error("User isn't created!");
-        }
         await user.$set('roles', [role.id], { transaction });
-          await transaction.commit();
+        await transaction.commit();
         return user;
       } catch (e) {
-          await transaction.rollback();
+        await transaction.rollback();
         console.log(e);
         throw new Error("Error creating user!");
       }
