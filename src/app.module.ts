@@ -8,6 +8,9 @@ import { SwaggerModule } from "./common/swagger/swagger.module";
 import * as process from "process";
 import { UserEntity } from "./users/entities/user.model";
 import { NoteEntity } from "./notes/entities/note.model";
+import { RolesModule } from './roles/roles.module';
+import { RoleEntity } from "./roles/entities/roles.model";
+import { UserRolesEntity } from "./roles/entities/user-roles.model";
 
 @Module({
   controllers: [],
@@ -23,12 +26,13 @@ import { NoteEntity } from "./notes/entities/note.model";
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [UserEntity, NoteEntity],
+      models: [UserEntity, RoleEntity, UserRolesEntity, NoteEntity],
       autoLoadModels: true,
     }),
     UsersModule,
     NotesModule,
     SwaggerModule,
+    RolesModule,
   ],
 })
 export class AppModule {}
