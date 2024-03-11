@@ -11,6 +11,7 @@ import { NoteEntity } from "./notes/entities/note.model";
 import { RolesModule } from './roles/roles.module';
 import { RoleEntity } from "./roles/entities/roles.model";
 import { UserRolesEntity } from "./roles/entities/user-roles.model";
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   controllers: [],
@@ -33,6 +34,7 @@ import { UserRolesEntity } from "./roles/entities/user-roles.model";
     NotesModule,
     SwaggerModule,
     RolesModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
